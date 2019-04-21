@@ -1,3 +1,16 @@
+<mat-card>
+  <mat-form-field>
+    <input matInput placeholder="Origin" type="text" [(ngModel)]="enteredOrigin">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Destination" type="text" [(ngModel)]="enteredDestination">
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="accent" (click)="onChangeLocation()">Change End Points</button>
+</mat-card>
+
+
 <agm-map>
   <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints">
   </agm-direction>
