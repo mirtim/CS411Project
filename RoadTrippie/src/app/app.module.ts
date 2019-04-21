@@ -17,11 +17,27 @@ import { AgmDirectionModule} from 'agm-direction';
 import { AgmCoreModule} from '@agm/core';
 import { FormsModule } from "@angular/forms";
 
+import { SocialLoginModule } from 'angularx-social-login';
+import { AuthServiceConfig, GoogleLoginProvider  } from 'angularx-social-login';
+import { LoginComponent } from './login/login.component';
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('390889707081-hbrtdpu8hghljbb4gsb4bhbnknjlk2qo.apps.googleusercontent.com')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderbarComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +52,15 @@ import { FormsModule } from "@angular/forms";
     MatInputModule,
     FormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
