@@ -60,6 +60,52 @@ app.get('/api/trips/:id', (req, res, next) => {
   });
 });
 
+
+app.get('/api/yelp', (req, res, next) => {
+  function listOfPoints (jsonObj) {
+    var stepsList = jsonObj.routes[0].legs[0].steps;
+    var pointsList = [];
+    var i;
+    var milesSoFar = 0;
+    for (i=0; i<stepsList.length; i++) {
+      var miles = parseFloat(stepsList[i].distance.text, 10); //base 10
+      milesSoFar += miles;
+      if (milesSoFar > 400) {
+        milesSoFar = 0;
+        var point = stepsList[i].start_location;
+        pointsList.push(point);
+      }
+    }
+    return pointsList;
+  }
+
+  var rp = require('request-promise');
+
+  var options = {
+    uri: 'https://maps.googleapis.com/maps/api/directions/json',
+    qs: {
+      origin: 'Boston',
+      destination: 'San+Diego',
+      key: 'AIzaSyAvukmJAGcLH5tlnfzuCpNd6BSAOXZ9F3M'
+    },
+    headers: {
+      'User-Agent': 'Request-Promise',
+    },
+    json: true
+  };
+
+  rp(options)
+    .then(function (result) {
+      res.status(200).json(result);
+    })
+    .catch(function (err) {
+      console.log(err);
+      res.status(500).json({message: "Something went wrong"});
+    });
+  //
+  // listOfPoints(json);
+});
+
 //
 // app.delete("/api/posts/:id", (req, res, next) => {
 //   Post.deleteOne({_id: req.params.id}).then(result => {
