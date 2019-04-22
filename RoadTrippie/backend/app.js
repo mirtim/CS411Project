@@ -61,7 +61,7 @@ app.get('/api/trips/:id', (req, res, next) => {
 });
 
 
-app.get('/api/yelp', (req, res, next) => {
+app.get('/api/yelp/:origin/:destination', (req, res, next) => {
   function listOfPoints (jsonObj) {
     var stepsList = jsonObj.routes[0].legs[0].steps;
     var pointsList = [];
@@ -70,10 +70,11 @@ app.get('/api/yelp', (req, res, next) => {
     for (i=0; i<stepsList.length; i++) {
       var miles = parseFloat(stepsList[i].distance.text, 10); //base 10
       milesSoFar += miles;
+      console.log(milesSoFar);
       if (milesSoFar > 400) {
         milesSoFar = 0;
-        var point = stepsList[i].start_location;
-        pointsList.push(point);
+        var point = stepsList[i].end_location;
+        pointsList.push({location: point, stopover: true});
       }
     }
     return pointsList;
@@ -81,11 +82,14 @@ app.get('/api/yelp', (req, res, next) => {
 
   var rp = require('request-promise');
 
+  var newOrigin = req.params.origin.replace(" ", "+");
+  var newDestination = req.params.destination.replace(" ", "+");
+
   var options = {
     uri: 'https://maps.googleapis.com/maps/api/directions/json',
     qs: {
-      origin: 'Boston',
-      destination: 'San+Diego',
+      origin: newOrigin,
+      destination: newDestination,
       key: 'AIzaSyAvukmJAGcLH5tlnfzuCpNd6BSAOXZ9F3M'
     },
     headers: {
@@ -96,7 +100,7 @@ app.get('/api/yelp', (req, res, next) => {
 
   rp(options)
     .then(function (result) {
-      res.status(200).json(result);
+      res.status(200).json(listOfPoints(result));
     })
     .catch(function (err) {
       console.log(err);

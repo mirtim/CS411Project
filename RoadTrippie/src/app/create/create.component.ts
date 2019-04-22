@@ -26,18 +26,18 @@ export class CreateComponent implements OnInit {
   }
 
   createNewTrip() {
-    console.log(this.user);
-    const trip = {
-      tripname: this.enteredTripName,
-      origin: this.enteredOrigin,
-      destination: this.enteredDestination,
-      waypoints: [],
-      userid: this.user.id
-    };
+    this.http.get('http://127.0.0.1:3000/api/yelp/' + this.enteredOrigin + "/" + this.enteredDestination).subscribe(result => {
+      const trip = {
+        tripname: this.enteredTripName,
+        origin: this.enteredOrigin,
+        destination: this.enteredDestination,
+        waypoints: result,
+        userid: this.user.id
+      };
 
-    this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
-      console.log(result);
+      this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
+        console.log(result);
+      });
     });
-
   }
 }

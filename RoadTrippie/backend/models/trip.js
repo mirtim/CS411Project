@@ -4,7 +4,7 @@ const tripSchema = mongoose.Schema({
   tripname: String,
   origin: String,
   destination: String,
-  waypoints: [String],
+  waypoints: [],
   userid: String
 });
 
