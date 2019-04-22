@@ -12,7 +12,7 @@
 
 
 <agm-map>
-  <agm-direction [origin]="trip.origin" [destination]="trip.destination" [waypoints]="trip.waypoints">
+  <agm-direction [origin]="trip.origin" [destination]="trip.destination" [waypoints]="trip.waypoints" *ngIf="trip">
   </agm-direction>
 </agm-map>
 
