@@ -68,9 +68,9 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
     var i;
     var milesSoFar = 0;
     for (i=0; i<stepsList.length; i++) {
-      var miles = parseFloat(stepsList[i].distance.text, 10); //base 10
+      var miles = stepsList[i].distance.value
       milesSoFar += miles;
-      if (milesSoFar > 400) {
+      if (milesSoFar > 563270) {
         milesSoFar = 0;
         var point = stepsList[i].end_location;
         pointsList.push({location: point, stopover: true});
