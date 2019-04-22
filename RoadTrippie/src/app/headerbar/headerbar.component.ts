@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService, SocialUser} from 'angularx-social-login';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-headerbar',
@@ -10,7 +11,7 @@ export class HeaderbarComponent implements OnInit {
 
   user: SocialUser;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
@@ -20,10 +21,12 @@ export class HeaderbarComponent implements OnInit {
   }
 
   signInClicked() {
-    console.log("Sign In CLicked");
+    this.router.navigateByUrl('/login')
+
   }
 
   signOutClicked() {
     this.authService.signOut();
+    this.router.navigateByUrl('/login')
   }
 }
