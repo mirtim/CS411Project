@@ -9,11 +9,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  public origin = "Boston, MA";
-  public destination = "Palo Alto, CA";
-  enteredOrigin = this.origin;
-  enteredDestination = this.destination;
-  public waypoints = []; //[{location: "New York, NY", stopover: true}];
   public tripid: string;
 
   user: SocialUser;
@@ -44,10 +39,5 @@ export class MapComponent implements OnInit {
         });
       });
     });
-  }
-
-  onChangeLocation() {
-    this.origin = this.enteredOrigin;
-    this.destination = this.enteredDestination;
   }
 }
