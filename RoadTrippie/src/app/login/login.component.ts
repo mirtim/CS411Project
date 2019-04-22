@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
 
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(val => {
-      console.log(this.user);
     });
   }
 

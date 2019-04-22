@@ -1,3 +1,11 @@
 <mat-toolbar color="primary">
   <span>RoadTrippie</span>
+  <span class="spacer"></span>
+  <span *ngIf="user != undefined">
+    <button mat-button [matMenuTriggerFor]="menu">{{ user.name }}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="signOutClicked()">Sign Out</button>
+    </mat-menu>
+  </span>
+  <span *ngIf="user == undefined"> <button mat-button color="accent" (click)="signInClicked()"> Sign In </button> </span>
 </mat-toolbar>

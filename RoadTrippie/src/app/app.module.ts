@@ -10,7 +10,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatButtonModule
+  MatButtonModule, MatMenuModule
 } from '@angular/material';
 import { MapComponent } from './map/map.component';
 import { AgmDirectionModule} from 'agm-direction';
@@ -53,7 +53,8 @@ export function provideConfig() {
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MatMenuModule
   ],
   providers: [
     {

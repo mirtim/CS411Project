@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService, SocialUser} from 'angularx-social-login';
 
 @Component({
   selector: 'app-headerbar',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderbarComponent implements OnInit {
 
-  constructor() { }
+  user: SocialUser;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(this.user);
+    });
   }
 
+  signInClicked() {
+    console.log("Sign In CLicked");
+  }
+
+  signOutClicked() {
+    this.authService.signOut();
+  }
 }
