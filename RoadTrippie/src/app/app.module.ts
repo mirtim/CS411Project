@@ -21,6 +21,7 @@ import { SocialLoginModule } from 'angularx-social-login';
 import { AuthServiceConfig, GoogleLoginProvider  } from 'angularx-social-login';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const config = new AuthServiceConfig([
   {
@@ -56,7 +57,8 @@ export function provideConfig() {
     MatCardModule,
     MatButtonModule,
     SocialLoginModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
   providers: [
     {
