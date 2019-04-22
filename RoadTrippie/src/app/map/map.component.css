@@ -1,13 +1,18 @@
+/*agm-map {*/
+  /*height: 100%;*/
+  /*width: 75%;*/
+/*}*/
+
+/*mat-card {*/
+  /*top: auto;*/
+  /*left: 75%;*/
+  /*width: 25%;*/
+  /*text-align: center;*/
+  /*position: fixed;*/
+  /*z-index: 1;*/
+/*}*/
+
 agm-map {
   height: 100%;
-  width: 75%;
-}
-
-mat-card {
-  top: auto;
-  left: 75%;
-  width: 25%;
-  text-align: center;
-  position: fixed;
-  z-index: 1;
+  width: 100%;
 }

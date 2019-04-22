@@ -56,7 +56,7 @@ app.get('/api/trips/:id', (req, res, next) => {
   var userid = req.headers.authorization;
 
   Trip.find({userid: userid, _id: req.params.id}).then(documents => {
-    res.status(200).json(documents);
+    res.status(200).json(documents[0]);
   });
 });
 
