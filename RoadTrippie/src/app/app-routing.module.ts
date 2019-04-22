@@ -8,7 +8,7 @@ import {CreateComponent} from "./create/create.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent},
-  { path: 'map', component: MapComponent},
+  { path: 'map/:tripid', component: MapComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'create', component: CreateComponent}
 ];

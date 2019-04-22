@@ -45,6 +45,6 @@ export class ProfileComponent implements OnInit {
   }
 
   viewTrip(tripid: string) {
-    console.log(tripid);
+    this.router.navigateByUrl( '/map/' + tripid);
   }
 }
