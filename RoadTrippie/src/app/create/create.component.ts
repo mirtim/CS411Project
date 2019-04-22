@@ -16,6 +16,8 @@ export class CreateComponent implements OnInit {
   enteredDestination: string;
   enteredTripName: string;
 
+  tripOptions = [];
+
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
@@ -26,18 +28,23 @@ export class CreateComponent implements OnInit {
   }
 
   createNewTrip() {
+    console.log('Clicked');
     this.http.get('http://127.0.0.1:3000/api/yelp/' + this.enteredOrigin + "/" + this.enteredDestination).subscribe(result => {
-      const trip = {
-        tripname: this.enteredTripName,
-        origin: this.enteredOrigin,
-        destination: this.enteredDestination,
-        waypoints: result,
-        userid: this.user.id
-      };
-
-      this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
-        console.log(result);
-      });
+      this.tripOptions = result;
+      console.log(result);
+      // const trip = {
+      //   tripname: this.enteredTripName,
+      //   origin: this.enteredOrigin,
+      //   destination: this.enteredDestination,
+      //   waypoints: [],
+      //   userid: this.user.id
+      // };
+      //
+      // console.log(trip);
+      //
+      // this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
+      //   console.log(result);
+      // });
     });
   }
 }

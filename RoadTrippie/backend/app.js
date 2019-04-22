@@ -73,7 +73,7 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
       if (milesSoFar > 563270) {
         milesSoFar = 0;
         var point = stepsList[i].end_location;
-        pointsList.push({location: point, stopover: true});
+        pointsList.push(point);
       }
     }
     return pointsList;
@@ -99,32 +99,53 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
 
   rp(options)
     .then(function (result) {
-      res.status(200).json(listOfPoints(result));
+      var points = listOfPoints(result);
+      var hotels = [];
+
+      for (var i = 0; i < points.length; i ++) {
+        var opt = {
+          uri: 'https://api.yelp.com/v3/businesses/search',
+          qs: {
+            latitude: points[i].lat,
+            longitude: points[i].lng,
+            term: "Hotel",
+            limit: 5
+          },
+          headers: {
+            'User-Agent': 'Request-Promise',
+            'Authorization': 'bearer ' + 'oBWzDGFf4gaY2Nh6MEXa8Ckpftt4tsPq1gM7Qr_xL2PdJBwXJpPiWRjc6tmlKaePPluDfuWTliChw4durzxv35ajpHXPKqBknsUhQq3OmdVtSKgjj2rPcXlz2D-dXHYx'
+          },
+          json: true,
+          family: 4
+        };
+
+        rp(opt).then(yelpResults => {
+          var hot = [];
+          var businesses = yelpResults.businesses;
+
+          for (var l = 0; l < businesses.length; l++) {
+            hotelObj = {
+              name: businesses[l].name,
+              img: businesses[l].image_url,
+              rating: businesses[l].rating,
+              coordinates: businesses[l].coordinates,
+              phone: businesses[l].display_phone,
+              distance: businesses[l].distance,
+              url: businesses[l].url
+            };
+            hot.push(hotelObj);
+          }
+          hotels.push(hot);
+          if (hotels.length === points.length) {
+            res.status(200).json(hotels);
+          }
+        });
+      }
     })
     .catch(function (err) {
       console.log(err);
       res.status(500).json({message: "Something went wrong"});
     });
-  //
-  // listOfPoints(json);
 });
-
-//
-// app.delete("/api/posts/:id", (req, res, next) => {
-//   Post.deleteOne({_id: req.params.id}).then(result => {
-//     res.status(200).json({message: "Post Deleted"});
-//   });
-// });
-//
-// app.put('/api/posts/:id', (req, res, next) => {
-//   const post = new Post({
-//     _id: req.body._id,
-//     title: req.body.title,
-//     content: req.body.content
-//   });
-//   Post.updateOne({_id: req.params.id}, post).then(result => {
-//     res.status(200).json({message: 'update successful'});
-//   });
-// });
 
 module.exports = app;
