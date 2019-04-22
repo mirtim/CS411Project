@@ -14,6 +14,7 @@ export class CreateComponent implements OnInit {
 
   enteredOrigin: string;
   enteredDestination: string;
+  enteredTripName: string;
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
@@ -25,7 +26,9 @@ export class CreateComponent implements OnInit {
   }
 
   createNewTrip() {
+    console.log(this.user);
     const trip = {
+      tripname: this.enteredTripName,
       origin: this.enteredOrigin,
       destination: this.enteredDestination,
       waypoints: [],

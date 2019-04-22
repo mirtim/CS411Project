@@ -28,11 +28,23 @@ export class ProfileComponent implements OnInit {
 
       this.http.get('http://127.0.0.1:3000/api/trips', httpOptions).subscribe((result) => {
         this.trips = result;
+        console.log(this.trips);
       });
+    });
+  }
+
+  deleteTrip(tripid: string) {
+    console.log("Trip Deleted: " + tripid);
+    this.http.delete('http://127.0.0.1:3000/api/trips/' + tripid).subscribe(result => {
+      this.ngOnInit();
     });
   }
 
   addNewTrip() {
     this.router.navigateByUrl('/create')
+  }
+
+  viewTrip(tripid: string) {
+    console.log(tripid);
   }
 }

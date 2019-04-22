@@ -21,12 +21,16 @@ export class HeaderbarComponent implements OnInit {
   }
 
   signInClicked() {
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login');
 
+  }
+
+  profileClicked() {
+    this.router.navigateByUrl('/profile');
   }
 
   signOutClicked() {
     this.authService.signOut();
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login');
   }
 }

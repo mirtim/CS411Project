@@ -1,5 +1,18 @@
 <button mat-raised-button color="primary" (click)="addNewTrip()">Add Trip</button>
 
 <h3> Your Trips:</h3>
-
-{{ trips }}
+<div *ngIf="trips != undefined">
+  <mat-accordion multi="true" *ngIf="trips.length > 0">
+    <mat-expansion-panel *ngFor="let trip of trips">
+      <mat-expansion-panel-header>
+        {{ trip.tripname }}
+      </mat-expansion-panel-header>
+      <p>{{ trip.destination }} <br> {{ trip.origin }}</p>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="viewTrip(trip._id)">VIEW MAP</button>
+        <button mat-button color="warn" (click)="deleteTrip(trip._id)">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="trips.length <= 0">You don't have any trips!</p>
+</div>

@@ -34,6 +34,7 @@ app.get('/api/trips', (req, res, next) => {
 
 app.post('/api/trips', (req, res, next) => {
   const trip = new Trip({
+    tripname: req.body.tripname,
     origin: req.body.origin,
     destination: req.body.destination,
     waypoints: req.body.waypoints,
@@ -49,6 +50,14 @@ app.delete('/api/trips/:id', (req, res, next) => {
   Trip.deleteOne({_id: req.params.id}).then(result => {
     res.status(200).json({message: "Trip Deleted"});
   })
+});
+
+app.get('/api/trips/:id', (req, res, next) => {
+  var userid = req.headers.authorization;
+
+  Trip.find({userid: userid, _id: req.params.id}).then(documents => {
+    res.status(200).json(documents);
+  });
 });
 
 //
