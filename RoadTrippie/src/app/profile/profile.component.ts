@@ -21,6 +21,6 @@ export class ProfileComponent implements OnInit {
   }
 
   addNewTrip() {
-    
+    this.router.navigateByUrl('/create')
   }
 }
