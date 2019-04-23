@@ -1,0 +1,14 @@
+button {
+  display: block;
+  height: 83px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  width: 305px;
+}
+
+#googleLogin img {
+  display: block;
+  height: 80px;
+  width: 300px;
+}
