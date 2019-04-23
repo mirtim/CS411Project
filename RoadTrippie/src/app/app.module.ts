@@ -10,12 +10,15 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatButtonModule, MatMenuModule, MatExpansionModule
+  MatButtonModule,
+  MatMenuModule,
+  MatExpansionModule,
+  MatStepperModule, MatProgressSpinnerModule, MatRadioModule
 } from '@angular/material';
 import { MapComponent } from './map/map.component';
 import { AgmDirectionModule} from 'agm-direction';
 import { AgmCoreModule} from '@agm/core';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { SocialLoginModule } from 'angularx-social-login';
 import { AuthServiceConfig, GoogleLoginProvider  } from 'angularx-social-login';
@@ -61,7 +64,11 @@ export function provideConfig() {
     SocialLoginModule,
     MatMenuModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
   ],
   providers: [
     {

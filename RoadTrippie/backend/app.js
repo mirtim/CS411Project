@@ -141,6 +141,10 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
           }
         });
       }
+
+      if (points.length === 0) {
+        res.status(200).json([]);
+      }
     })
     .catch(function (err) {
       console.log(err);

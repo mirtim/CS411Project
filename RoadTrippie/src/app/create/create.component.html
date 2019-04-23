@@ -14,5 +14,37 @@
   <button mat-raised-button color="accent" (click)="createNewTrip()">Create New Trip</button>
 </mat-card>
 
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+
 <div *ngIf="tripOptions.length > 0">
+  <mat-horizontal-stepper linear="true" #stepper>
+    <mat-step *ngFor="let i of tripOptionsNums">
+        <ng-template matStepLabel>Hotel {{ i + 1 }}</ng-template>
+      <mat-radio-group [(ngModel)]="tripOptionsFinal[i]">
+        <mat-radio-button *ngFor="let hotel of tripOptions[i]" [value]="hotel">
+          {{ hotel.name }}
+          <br>
+          {{ hotel.rating }}
+          <br>
+          {{ hotel.display_phone }}
+          <br>
+          {{ hotel.url }}
+          <br>
+          {{ hotel.img_url }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="testFunc()">Test</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>
+
