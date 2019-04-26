@@ -4,18 +4,16 @@
   position: absolute;
   left: 50%;
   top: 25%;
-  margin-left: -186px;
+  margin-left: -180px;
   margin-top: -75px;
 }
 
 button {
   display: block;
-  background-image: url("https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-9/58842343_2186702471426859_1005368865225441280_n.jpg?_nc_cat=103&_nc_ht=scontent.fzty2-1.fna&oh=78b1a339732ca4e17134b948018ac3ff&oe=5D3D3FDF");
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 48px;
-  width: 48px;
+  height: 100px;
+  width: 100px;
   position: absolute;
+  padding: 0 !important;
   border-radius: 50%;
   left: 50%;
   top: 40%;
@@ -26,6 +24,7 @@ button {
 
 #googleLogin img {
   display: block;
+  margin: 0 auto;
   height: 50px;
   width: 100px;
 }

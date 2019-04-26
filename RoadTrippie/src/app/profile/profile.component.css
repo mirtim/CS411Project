@@ -10,14 +10,14 @@
 }
 
 #TripList {
-  margin-top: .25rem;
+  margin-top: 1rem;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
 
 
 #YourTrips {
-  margin-top: 10px;
+  margin-top: 100px;
   font-weight: bold;
 }
 
@@ -25,4 +25,16 @@
   font-weight: lighter;
   justify-content: flex-end;
   padding-right: 60%;
+}
+
+#AddTripButton {
+  height: 70px;
+  width: 175px;
+  font-size: 32px;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  position: absolute;
+  right: 50%;
+  margin-right: -90px;
+  border-radius: 20px;
 }
