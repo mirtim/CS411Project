@@ -1,14 +1,32 @@
+#signIn {
+  height: 148px;
+  width: 372px;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: -186px;
+  margin-top: -75px;
+}
+
 button {
   display: block;
-  height: 83px;
-  padding: 0;
-  margin: 0;
-  vertical-align: top;
-  width: 305px;
+  background-image: url("https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-9/58842343_2186702471426859_1005368865225441280_n.jpg?_nc_cat=103&_nc_ht=scontent.fzty2-1.fna&oh=78b1a339732ca4e17134b948018ac3ff&oe=5D3D3FDF");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 40%;
+  margin-left: -25px;
+  margin-top: -25px;
 }
+
 
 #googleLogin img {
   display: block;
-  height: 80px;
-  width: 300px;
+  height: 50px;
+  width: 100px;
 }
+
