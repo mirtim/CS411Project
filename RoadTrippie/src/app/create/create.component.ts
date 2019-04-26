@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService, SocialUser} from "angularx-social-login";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create',
