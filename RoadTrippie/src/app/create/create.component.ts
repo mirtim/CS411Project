@@ -46,9 +46,8 @@ export class CreateComponent implements OnInit {
 
     this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
       console.log(result);
+      this.router.navigateByUrl('/profile');
     });
-
-    this.router.navigateByUrl('/profile');
   }
 
   ngOnInit() {
