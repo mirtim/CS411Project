@@ -24,17 +24,9 @@
     <mat-horizontal-stepper linear="true" #stepper>
       <mat-step *ngFor="let i of tripOptionsNums">
           <ng-template matStepLabel>Hotel {{ i + 1 }}</ng-template>
-        <mat-radio-group [(ngModel)]="tripOptionsFinal[i]">
+        <mat-radio-group class="columnGroup" [(ngModel)]="tripOptionsFinal[i]">
           <mat-radio-button *ngFor="let hotel of tripOptions[i]" [value]="hotel">
-            {{ hotel.name }}
-            <br>
-            {{ hotel.rating }}
-            <br>
-            {{ hotel.display_phone }}
-            <br>
-            {{ hotel.url }}
-            <br>
-            <img src="" alt="Smiley face" height="42" width="42">
+            {{ hotel.name }} : {{ hotel.rating }}
           </mat-radio-button>
         </mat-radio-group>
         <div class="upSpace">

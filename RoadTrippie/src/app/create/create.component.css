@@ -42,3 +42,9 @@ body {
 .upSpace {
   margin-top: 2rem;
 }
+
+.columnGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 1rem;
+}
