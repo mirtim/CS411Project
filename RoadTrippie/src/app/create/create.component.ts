@@ -22,6 +22,7 @@ export class CreateComponent implements OnInit {
   tripOptionsNums = [];
   tripOptionsFinal = [];
 
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   testFunc() {
     var wayps = [];
@@ -47,9 +48,9 @@ export class CreateComponent implements OnInit {
     this.http.post('http://127.0.0.1:3000/api/trips', trip).subscribe(result => {
       console.log(result);
     });
-  }
 
-  constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
+    this.router.navigateByUrl('/profile');
+  }
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {

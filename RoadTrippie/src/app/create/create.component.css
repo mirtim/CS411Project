@@ -1,3 +1,44 @@
-mat-card {
-  margin-bottom: 1rem;
+.Create {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%,50%);
+  position: absolute;
+  width: 20%;
+}
+
+input {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+
+#newTripButton {
+  width: 100%;
+}
+
+mat-spinner {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%,50%);
+  position: absolute;
+}
+
+
+body {
+  background-color: #e2edff;
+}
+
+.Choose {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%,50%);
+  position: absolute;
+  width: 70%;
+}
+
+.upSpace {
+  margin-top: 2rem;
 }

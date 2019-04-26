@@ -1,4 +1,5 @@
-<mat-card>
+<body>
+<mat-card class="Create" *ngIf="loading === false && tripOptions.length === 0">
   <mat-form-field>
     <input matInput placeholder="Trip Name" type="text" [(ngModel)]="enteredTripName">
   </mat-form-field>
@@ -11,40 +12,46 @@
     <input matInput placeholder="Destination" type="text" [(ngModel)]="enteredDestination">
   </mat-form-field>
   <br>
-  <button mat-raised-button color="accent" (click)="createNewTrip()">Create New Trip</button>
+  <button id="newTripButton" mat-raised-button color="accent" (click)="createNewTrip()">Create New Trip</button>
 </mat-card>
 
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-spinner color="white" *ngIf="loading"></mat-spinner>
 
 
 <div *ngIf="tripOptions.length > 0">
-  <mat-horizontal-stepper linear="true" #stepper>
-    <mat-step *ngFor="let i of tripOptionsNums">
-        <ng-template matStepLabel>Hotel {{ i + 1 }}</ng-template>
-      <mat-radio-group [(ngModel)]="tripOptionsFinal[i]">
-        <mat-radio-button *ngFor="let hotel of tripOptions[i]" [value]="hotel">
-          {{ hotel.name }}
-          <br>
-          {{ hotel.rating }}
-          <br>
-          {{ hotel.display_phone }}
-          <br>
-          {{ hotel.url }}
-          <br>
-          {{ hotel.img_url }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="testFunc()">Test</button>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+  <mat-card class="Choose">
+    <mat-horizontal-stepper linear="true" #stepper>
+      <mat-step *ngFor="let i of tripOptionsNums">
+          <ng-template matStepLabel>Hotel {{ i + 1 }}</ng-template>
+        <mat-radio-group [(ngModel)]="tripOptionsFinal[i]">
+          <mat-radio-button *ngFor="let hotel of tripOptions[i]" [value]="hotel">
+            {{ hotel.name }}
+            <br>
+            {{ hotel.rating }}
+            <br>
+            {{ hotel.display_phone }}
+            <br>
+            {{ hotel.url }}
+            <br>
+            <img src="" alt="Smiley face" height="42" width="42">
+          </mat-radio-button>
+        </mat-radio-group>
+        <div class="upSpace">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Finalize Trip</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="testFunc()">Finalize Trip</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card>
 </div>
+</body>
 
