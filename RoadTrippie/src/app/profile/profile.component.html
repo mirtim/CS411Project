@@ -1,11 +1,16 @@
-<button mat-raised-button color="primary" (click)="addNewTrip()">Add Trip</button>
-
-<h3> Your Trips:</h3>
-<div *ngIf="trips != undefined">
+<div id="TripHeading">
+  <span id="YourTrips">Your Trips:</span>
+  <span class="spacer"></span>
+  <span><button mat-button color="primary" (click)="addNewTrip()" id="AddTripButton">Add Trip</button></span>
+</div>
+<div id="TripList" *ngIf="trips != undefined">
   <mat-accordion multi="true" *ngIf="trips.length > 0">
     <mat-expansion-panel *ngFor="let trip of trips">
       <mat-expansion-panel-header>
-        {{ trip.tripname }}
+        <span>{{ trip.tripname }}</span>
+        <span class="spacer"></span>
+        <span id="orgtodest">{{ trip.origin }} to {{ trip.destination}}</span>
+
       </mat-expansion-panel-header>
       <p>{{ trip.destination }} <br> {{ trip.origin }}</p>
       <mat-action-row>

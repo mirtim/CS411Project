@@ -1,0 +1,28 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+#TripHeading {
+  margin-top: 1rem;
+  display: flex;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+#TripList {
+  margin-top: .25rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+
+#YourTrips {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#orgtodest {
+  font-weight: lighter;
+  justify-content: flex-end;
+  padding-right: 60%;
+}
