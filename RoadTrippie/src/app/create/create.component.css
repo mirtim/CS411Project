@@ -17,6 +17,8 @@ mat-form-field {
 
 #newTripButton {
   width: 100%;
+  background-color: #B6465F;
+  color: #086788;
 }
 
 mat-spinner {
