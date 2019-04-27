@@ -1,3 +1,20 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.mat-toolbar.mat-primary {
+  background: #086788;
+  color: #B6465F;
+}
+
+
+/*
+Blue:
+#086788
+
+Rose:
+#B6465F
+
+Alabaster:
+#F2EFE6
+*/

@@ -3,7 +3,6 @@
 }
 
 #TripHeading {
-  margin-top: 1rem;
   display: flex;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -17,8 +16,17 @@
 
 
 #YourTrips {
+  font-style: italic;
+  font-size: 17px;
   margin-top: 100px;
   font-weight: bold;
+  color: #B6465F;
+}
+
+#trips {
+  font-style: italic;
+  font-size: 15px;
+  color: #086788;
 }
 
 #orgtodest {
@@ -28,13 +36,17 @@
 }
 
 #AddTripButton {
+  margin-top: 1rem;
   height: 70px;
   width: 175px;
-  font-size: 32px;
+  font-size: 28px;
   font-family: "Trebuchet MS", sans-serif;
   font-weight: 600;
   position: absolute;
   right: 50%;
   margin-right: -90px;
   border-radius: 20px;
+  color: #086788;
 }
+
+body {background-color: #F2EFE6}

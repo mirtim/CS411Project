@@ -2,7 +2,7 @@
   <span>RoadTrippie</span>
   <span class="spacer"></span>
   <span *ngIf="user != undefined">
-    <button mat-button [matMenuTriggerFor]="menu">{{ user.name }}</button>
+    <button style="font-size: 17px; color: #B6465F" mat-button [matMenuTriggerFor]="menu">{{ user.name }}</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="profileClicked()">Profile</button>
       <button mat-menu-item (click)="signOutClicked()">Sign Out</button>
@@ -10,3 +10,4 @@
   </span>
   <span *ngIf="user == undefined"> <button mat-button color="accent" (click)="signInClicked()"> Sign In </button> </span>
 </mat-toolbar>
+
