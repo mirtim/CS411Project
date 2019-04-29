@@ -27,10 +27,13 @@ import { ProfileComponent } from './profile/profile.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CreateComponent } from './create/create.component';
 
+import { API_KEYS } from "./environment";
+
+
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('390889707081-hbrtdpu8hghljbb4gsb4bhbnknjlk2qo.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('')
   }
 ]);
 
@@ -53,7 +56,7 @@ export function provideConfig() {
     BrowserAnimationsModule,
     MatToolbarModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAvukmJAGcLH5tlnfzuCpNd6BSAOXZ9F3M'
+      apiKey: ''
     }),
     AgmDirectionModule,
     MatFormFieldModule,

@@ -60,7 +60,7 @@ export class CreateComponent implements OnInit {
     this.loading = true;
     this.http.get<any>('http://127.0.0.1:3000/api/yelp/' + this.enteredOrigin + "/" + this.enteredDestination).subscribe((result) => {
       this.tripOptions = result;
-      this.tripOptionsNums = Array(this.tripOptions.length).fill().map((x,i)=>i);
+      this.tripOptionsNums = Array(this.tripOptions.length).fill(0).map((x,i)=>i);
       this.tripOptionsFinal = Array(this.tripOptions.length).fill(-1);
 
       console.log(this.tripOptionsNums);

@@ -7,12 +7,15 @@ const Trip = require('./models/trip');
 
 const app = express();
 
+const api_keys = require('./config');
+
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb+srv://michael:qweyRooNCGuOi3OH@cluster0-pqcdh.mongodb.net/test?retryWrites=true").then(() => {
+mongoose.connect(api_keys.MONGO).then(() => {
   console.log("Connected to database");
-}).catch(() => {
+}).catch((err) => {
   console.log("Connection to Mongo Failed");
+  console.log(err);
 });
 
 app.use((req, res, next) => {
@@ -89,7 +92,7 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
     qs: {
       origin: newOrigin,
       destination: newDestination,
-      key: 'AIzaSyAvukmJAGcLH5tlnfzuCpNd6BSAOXZ9F3M'
+      key: api_keys.GOOGLE
     },
     headers: {
       'User-Agent': 'Request-Promise',
@@ -113,7 +116,7 @@ app.get('/api/yelp/:origin/:destination', (req, res, next) => {
           },
           headers: {
             'User-Agent': 'Request-Promise',
-            'Authorization': 'bearer ' + 'oBWzDGFf4gaY2Nh6MEXa8Ckpftt4tsPq1gM7Qr_xL2PdJBwXJpPiWRjc6tmlKaePPluDfuWTliChw4durzxv35ajpHXPKqBknsUhQq3OmdVtSKgjj2rPcXlz2D-dXHYx'
+            'Authorization': 'bearer ' + api_keys.YELP
           },
           json: true,
           family: 4
