@@ -3,3 +3,11 @@ For the current portion of the back-end code, we are already using Node and Expr
 Among other options we considered using Python and Django, however,
 MEAN stack seem a bit more "user friendly", especially for the someone who does not have much experience in Web Development.
 It is very convenient to be able to use Java Script both on the back-end and front-end.
+
+OAuth:
+  - Google
+APIs:
+  - Google Maps 
+  - Yelp
+Database:
+  - MongoDB
