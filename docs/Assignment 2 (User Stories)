@@ -10,12 +10,14 @@ Exception: If the user presses Facebook login and then refuses the application t
 
 Story 2
 
-As a logged in user, I want to enter starting and ending points and get live directions from Google Maps, throughout my trip. This should be to my closest destination, either points of interest or the lodging for the night. All destinations should be on the way to the overall destination. 
-Conditions of Satisfaction: That the added trip does not add more than 30 mins to the overall driving time 
-Exception: 
+As a logged in user, I want to be able to enter a start and end point into my trip. I want to be able to save my trips to edit these trips later.
+Conditions of Satisfaction: Trip route is show on maps api
+Exception: User enters an  invalid city
 
 
 Story 3
 
-As a logged in user, I want to have a live voice guidance of how close my next destination/place of interest is so that I would not have to look at my phone, while driving, to know how far I am from my destination and be able to turn this feature on and off in settings.
-Exceptions: If the driver misses the turn or changes the route, the voice should give him the updated information and/or say about the alternative options.
+As a logged in user, I want to be able to get restaurant and hotels suggestions at every n mile intervals selected so that I can get fed and housed appropriately on my journey.
+Conditions of Satisfaction: At least 3 hotels and 3 Restaurants are shown, with them being not too out of the way from the actual route.
+Exception: User enters an  invalid city
+
