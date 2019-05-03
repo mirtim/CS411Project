@@ -5,19 +5,21 @@ Story 1
 As a user, I want to be able to log in to the web app through Facebook Oauth in order to log in securely and have preferences saved, to show that I logged in. On the web application, there should be a login button, and when that button is pressed, there should be an option to log in through Facebook. When the Facebook button is pressed,
 Condition of Satisfaction: The user is logged in. 
 Exception: If the user does not have a Facebook account, the user would have to create one before logging into the web application.
-Exception: If the user presses Facebook login and then refuses the application to use their Facebook authentication details, the user would be redirected to the application.
+
+** EDIT ** We decided to use Google OAuth instead of Facebook OAuth after facing numerous implementation issues. Additionally, we scrapped managing accounts ourselves to simplify our application and allow us to focus on the core features. 
 
 
 Story 2
 
-As a logged in user, I want to be able to enter a start and end point into my trip. I want to be able to save my trips to edit these trips later.
+As a logged in user, I want to be able to enter a start and end point into my trip. I want to be able to save my trips to view these trips later.
 Conditions of Satisfaction: Trip route is show on maps api
-Exception: User enters an  invalid city
+Exception: User enters an invalid city
 
 
 Story 3
 
 As a logged in user, I want to be able to get restaurant and hotels suggestions at every n mile intervals selected so that I can get fed and housed appropriately on my journey.
 Conditions of Satisfaction: At least 3 hotels and 3 Restaurants are shown, with them being not too out of the way from the actual route.
+                            ** EDIT ** Hotels will be shown depending on the distance of the trip. If the trip is short enough to do reasonably in one day, no hotels will be shown. 
 Exception: User enters an  invalid city
 
