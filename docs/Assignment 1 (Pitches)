@@ -5,11 +5,15 @@ MVP: Enter a starting point and a end point: NYC, NY to NO, LA
   Finds Breakfast, Lunch, and Dinner places, as well as a Airbnb/Hotel for the night that are on the way/ not too far off your road trip route.
   Future implementation would have landmarks, entertainment, and maps your expected trip length. 
   
+  ** EDIT ** We did not have time to implement the food finding feature, so our application soley finds hotels along the route. 
+  
   APIs: 
     Expedia
     Google Maps
     Airbnb https://www.programmableweb.com/api/airbnb
     Apricot API 
+    
+    ** EDIT ** We decided to use the Yelp API as it offered more flexibility. 
 
 
 
