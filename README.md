@@ -3,7 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
+* [Technologies and APIs](#technologies-and-apis)
 * [Features](#features)
 * [Status](#status)
 * [Contact](#contact)
