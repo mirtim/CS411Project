@@ -34,4 +34,4 @@ One interesting feature of this app is that it calculated the time of consecutiv
 Project is: _finished_
 
 ## Contact
-Created by Timothy Mirzoian - contact at mirzoiantim@gmail.com
+Created by Timothy Mirzoian - contact me at mirzoiantim@gmail.com
