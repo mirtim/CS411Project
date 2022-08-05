@@ -27,7 +27,7 @@
     "core-js": "^2.6.9",
     "hammerjs": "^2.0.8",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.5",
     "request-promise": "^4.2.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.10.0",
